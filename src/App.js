@@ -1,41 +1,29 @@
 import React from "react";
 
-const buttonA = <button>Histórico dos Clientes</button>
-const buttonB = <button>Cadastrar Cliente</button>
-
-const hasCustomer = true
+const listConsumers = [
+    {
+        id: 1,
+        name: 'Dernival Liandro'
+    },
+    {
+        id: 2,
+        name: 'Alícia Liandro'
+    },
+    {
+        id: 3,
+        name: 'Elainy Rodrigues'
+    },
+    {
+        id: 4,
+        name: 'Ana Maria'
+    }
+]
 
 const App = () => {
 
-    const renderShowHistory = () => (
-        <div>
-            Clique no botão abaixo para visualizar o histórico dos clientes
-            <br />
-            {buttonA}
-        </div>
-    )
-
-    const renderAddCustomer = () => (
-        <div>
-            Clique no botão abaixo para cadastrar um novo cliente
-            <br />
-            {buttonB}
-        </div>
-    )
-
-    var consumers = ['Dernival Liandro', 'Alícia Liandro', 'Elainy Rodrigues']
-
-    const showCostumer = () => {
-        if (!hasCustomer) return null
-
+    const renderCustomers = (customer) => {
         return (
-            <div>
-                <ul>
-                    <li>Nome do Cliente: {consumers[0]}</li>
-                    <li>Nome do Cliente: {consumers[1]}</li>
-                    <li>Nome do Cliente: {consumers[2]}</li>
-                </ul>
-            </div>
+        <li key={`costomer-${customer.id}`}>{customer.name}</li>
         )
     }
 
@@ -43,9 +31,10 @@ const App = () => {
         <div>
             <p>Digital Innovation One</p>
             <p>Bem vindo a nossa aula =D</p>
-            {hasCustomer ? renderShowHistory() : renderAddCustomer()}
             <div>
-                {showCostumer()}
+                <ul>
+                    {listConsumers.map(renderCustomers)}
+                </ul>
             </div>
         </div>
     );
