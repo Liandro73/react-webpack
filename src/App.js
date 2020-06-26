@@ -1,41 +1,28 @@
 import React from "react";
 
-const listConsumers = [
-    {
-        id: 1,
-        name: 'Dernival Liandro'
-    },
-    {
-        id: 2,
-        name: 'Alícia Liandro'
-    },
-    {
-        id: 3,
-        name: 'Elainy Rodrigues'
-    },
-    {
-        id: 4,
-        name: 'Ana Maria'
-    }
-]
-
 const App = () => {
+    
+    const name = 'Digital Innovation One'
 
-    const renderCustomers = (customer) => {
-        return (
-        <li key={`costomer-${customer.id}`}>{customer.name}</li>
-        )
+    const handleChange = (e) => {
+        const { value } = e.target
+        console.log(value)
     }
+    
+    const showEvent = (e) => {
+        console.log('evento clicado')
+        console.log(e)
+        alert(name)
+    }
+
+    const Button = <button onClick={showEvent}>Mostrar Evento</button>
 
     return (
         <div>
             <p>Digital Innovation One</p>
             <p>Bem vindo a nossa aula =D</p>
-            <div>
-                <ul>
-                    {listConsumers.map(renderCustomers)}
-                </ul>
-            </div>
+            <input onChange={handleChange} />
+            {Button}
         </div>
     );
 };
